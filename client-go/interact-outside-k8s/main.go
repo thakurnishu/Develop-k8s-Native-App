@@ -16,7 +16,7 @@ func KubeconfigHome() string {
 	// To get kubeconfig file location
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
-		fmt.Printf("ERROR getting UserHome dir: \n%v\n", err)
+		fmt.Printf("ERROR getting UserHome dir: \n%v\n", err.Error())
 	}
 	kubeconfigPath := filepath.Join(homeDir, ".kube", "config")
 
@@ -27,12 +27,12 @@ func GetClientSet(kubeconfig *string) *kubernetes.Clientset {
 
 	config, err := clientcmd.BuildConfigFromFlags("", *kubeconfig)
 	if err != nil {
-		fmt.Printf("ERROR Building Config from Flag: \n%v\n", err)
+		fmt.Printf("ERROR Building Config from Flag: \n%v\n", err.Error())
 	}
 
 	clientSet, err := kubernetes.NewForConfig(config)
 	if err != nil {
-		fmt.Printf("ERROR Creating ClientSet from Config: \n%v\n", err)
+		fmt.Printf("ERROR Creating ClientSet from Config: \n%v\n", err.Error())
 	}
 	return clientSet
 }
@@ -53,7 +53,7 @@ func main() {
 
 	podList, err := clientset.CoreV1().Pods(*nameSpace).List(ctx, metaV1.ListOptions{})
 	if err != nil {
-		fmt.Printf("ERROR in listing Pod: \n%v\n", err)
+		fmt.Printf("ERROR in listing Pod: \n%v\n", err.Error())
 	}
 	fmt.Printf("Pod in %v namespace\n", *nameSpace)
 	for _, pod := range podList.Items {
@@ -64,7 +64,7 @@ func main() {
 
 	deploymentList, err := clientset.AppsV1().Deployments(*nameSpace).List(ctx, metaV1.ListOptions{})
 	if err != nil {
-		fmt.Printf("ERROR in listing Deployments: \n%v\n", err)
+		fmt.Printf("ERROR in listing Deployments: \n%v\n", err.Error())
 	}
 	fmt.Printf("Deployments in %v namespace\n", *nameSpace)
 	for _, deployment := range deploymentList.Items {
