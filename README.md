@@ -72,5 +72,6 @@ what happening with resource in k8s.
 - *watch* verb is going to query `api-server` repeatedly (created, deleted, updated), which is going to increase load onto `api-server` and use process are going to slow due to use of *watch* verb
 
 #### **Why we use Informer ?**
-- sfsdd
-- ![Screenshot from 2024-01-12 01-49-08](https://github.com/thakurnishu/Develop-k8s-Native-App/assets/90508814/00a93822-d99f-46e6-aa0c-1b410d368e59)
+- It still use *watch* internally but it very efficiently leverages in-memory store, which is going to reduce load onto `api-server` 
+- It is very important component while writing kubernetes controller
+![Screenshot from 2024-01-12 02-29-54](https://github.com/thakurnishu/Develop-k8s-Native-App/assets/90508814/c506fc43-50d4-48a7-8694-32c15cfd255b)
