@@ -1,4 +1,4 @@
-module github.com/thakurnishu/develop-k8s-native-app/client-go/one
+module github.com/thakurnishu/develop-k8s-native-app/client-go/interact-outside-k8s
 
 go 1.21.1
 
