@@ -12,4 +12,4 @@ Basic of Client-go and other library to Create K8S Native Application
 
 ### Kubernetes Objects/Resources in GO
 
-- In Go code, if any struct implements `runtime.Object`  `Interface`
+- In Go code, when a struct implements the `runtime.Object` `interface` from the **`apimachinery/pkg`** package, we can classify that Go struct as a **Kubernetes Object**
