@@ -16,7 +16,7 @@ func KubeconfigHome() string {
 	// To get kubeconfig file location
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
-		fmt.Printf("ERROR: \n%v\n", err)
+		fmt.Printf("ERROR getting UserHome dir: \n%v\n", err)
 	}
 	kubeconfigPath := filepath.Join(homeDir, ".kube", "config")
 
@@ -27,12 +27,12 @@ func GetClientSet(kubeconfig *string) *kubernetes.Clientset {
 
 	config, err := clientcmd.BuildConfigFromFlags("", *kubeconfig)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Printf("ERROR Building Config from Flag: \n%v\n", err)
 	}
 
 	clientSet, err := kubernetes.NewForConfig(config)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Printf("ERROR Creating ClientSet from Config: \n%v\n", err)
 	}
 	return clientSet
 }
