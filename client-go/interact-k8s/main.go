@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 
 	metaV1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/clientcmd"
@@ -58,6 +59,8 @@ func main() {
 
 	// Parse flags once
 	flag.Parse()
+
+	runtime.Object
 
 	clientset := GetClientSet(kubeconfig)
 	ctx := context.Background()
