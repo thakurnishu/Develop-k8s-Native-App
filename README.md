@@ -61,3 +61,16 @@ spec:
             memory: "128Mi"  
             cpu: "50m"    
 ```
+### Informer, Cache and Queue 
+
+#### **What is custom controller ?**
+- It can be any application which listen to specfic resource in kubernetes cluster and perform action based on
+what happening with resource in k8s.
+- So, for this we need something that watch kubernetes cluster (created, deleted, updated) and tell application to perform further action [`watch` vs `Informer`].
+
+#### **Why don't we use Watch ?**
+- *watch* verb is going to query `api-server` repeatedly (created, deleted, updated), which is going to increase load onto `api-server` and use process are going to slow due to use of *watch* verb
+
+#### **Why we use Informer ?**
+- sfsdd
+- ![Screenshot from 2024-01-12 01-49-08](https://github.com/thakurnishu/Develop-k8s-Native-App/assets/90508814/00a93822-d99f-46e6-aa0c-1b410d368e59)
