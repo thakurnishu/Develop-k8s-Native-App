@@ -1,3 +1,3 @@
-# Building Sample client-go Applications
+# Sample client-go Applications
 - Interact inside a Kubernetes Cluster
 - Interact outside of Kubernetes Cluster like remote server
