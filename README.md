@@ -74,4 +74,4 @@ what happening with resource in k8s.
 #### **Why we use Informer ?**
 - It still use *watch* internally but it very efficiently leverages in-memory store, which is going to reduce load onto `api-server` 
 - It is very important component while writing kubernetes controller
-![Screenshot from 2024-01-12 02-29-54](https://github.com/thakurnishu/Develop-k8s-Native-App/assets/90508814/c506fc43-50d4-48a7-8694-32c15cfd255b)
+![Screenshot from 2024-01-12 11-27-52](https://github.com/thakurnishu/Develop-k8s-Native-App/assets/90508814/8dbcb199-57b5-4222-b7ea-e1e90637b0c3)
