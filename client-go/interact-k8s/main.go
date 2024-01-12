@@ -24,7 +24,7 @@ func KubeconfigHome() string {
 	return kubeconfigPath
 }
 
-func GetClientSet(kubeconfig *string) *kubernetes.Clientset {
+func GetTypedClientSet(kubeconfig *string) *kubernetes.Clientset {
 	var config *rest.Config
 
 	if _, err := os.Stat(*kubeconfig); err == nil {
@@ -41,9 +41,10 @@ func GetClientSet(kubeconfig *string) *kubernetes.Clientset {
 		}
 	}
 
+	// Typed ClientSet
 	clientSet, err := kubernetes.NewForConfig(config)
 	if err != nil {
-		fmt.Printf("ERROR Creating ClientSet from Config: \n%v\n", err.Error())
+		fmt.Printf("ERROR Creating Typed ClientSet from Config: \n%v\n", err.Error())
 	}
 	return clientSet
 }
@@ -59,7 +60,7 @@ func main() {
 	// Parse flags once
 	flag.Parse()
 
-	clientset := GetClientSet(kubeconfig)
+	clientset := GetTypedClientSet(kubeconfig)
 	ctx := context.Background()
 
 	podList, err := clientset.CoreV1().Pods(*nameSpace).List(ctx, metaV1.ListOptions{})
