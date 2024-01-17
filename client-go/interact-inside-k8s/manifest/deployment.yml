@@ -1,21 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lister-deployment
+  name: sik-deployment
+  namespace: sik-controller
   labels:
-    app: lister
+    app: sik
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: lister
+      app: sik
   template:
     metadata:
       labels:
-        app: lister
+        app: sik
     spec:
       containers:
-      - name: lister
+      - name: sik
         image: mahakal0510/lister:0.1.1
         resources:
           limits:
